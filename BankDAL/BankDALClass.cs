@@ -130,17 +130,21 @@ namespace BankDAL
             cn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             List<transations> t_list = new List<transations>();
-            transations t = new transations();
-            if (dr.HasRows)
-            {
-                dr.Read();
-                t.Sender = (long)dr[0];
-                t.Receiver = (long)dr[1];
-                t.Date = dr[2].ToString();
-                t.Amount = Convert.ToInt64(dr[3]);
-                t_list.Add(t);
+            
 
+            while (dr.Read())
+            {
+                transations t = new transations();
+
+                t.Sender = (long)dr[0];
+                    t.Receiver = (long)dr[1];
+                    t.Date = dr[2].ToString();
+                    t.Amount = Convert.ToInt64(dr[3]);
+                    t_list.Add(t);
+               
             }
+
+            
             cn.Close();
             cn.Dispose();
             return t_list;
@@ -166,8 +170,9 @@ namespace BankDAL
             SqlCommand cmd = new SqlCommand(sql, cn);
             cn.Open();
             int i = cmd.ExecuteNonQuery();
-
-
+            sql = $"insert into Transactions values('65001',{AccountNo},'{DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")}',{amount})";
+            cmd = new SqlCommand(sql, cn);
+            cmd.ExecuteNonQuery();
             cn.Close();
             cn.Dispose();
 
@@ -181,7 +186,9 @@ namespace BankDAL
             SqlCommand cmd = new SqlCommand(sql, cn);
             cn.Open();
             int i = cmd.ExecuteNonQuery();
-
+            sql = $"insert into Transactions values({AccountNo},'65001','{DateTime.Now.ToString("MM/dd/yyyy hh:mm tt")}',{amount})";
+            cmd = new SqlCommand(sql, cn);
+            cmd.ExecuteNonQuery();
             cn.Close();
             cn.Dispose();
 

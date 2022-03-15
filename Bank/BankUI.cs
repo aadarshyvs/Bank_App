@@ -115,7 +115,7 @@ namespace Bank
                 bal.IBPassword = c.IBPassword;
                 c.BranchName = "Chennai";
                 bal.BranchName = c.BranchName;
-                c.IFSC = "ZIN00001";
+                c.IFSC = "ZIN65001";
                 bal.IFSC = c.IFSC;
                 c.Status = "Open";
                 bal.Status = c.Status;
@@ -358,7 +358,19 @@ namespace Bank
                     List<transations> t_list = bal.View_Stament(AccountNo);
                     foreach (transations tr in t_list)
                     {
-                        Console.WriteLine($"{tr.Sender}\t{tr.Receiver}\t{tr.Amount}\t{tr.Date}");
+                        if (tr.Sender== 65001)
+                        {
+                            Console.WriteLine($"Bank\t\t{tr.Receiver}\t{tr.Amount}\t{tr.Date}");
+                        }
+                        else if (tr.Receiver== 65001)
+                        {
+                            Console.WriteLine($"{tr.Sender}\tBank\t\t{tr.Amount}\t{tr.Date}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"{tr.Sender}\t{tr.Receiver}\t{tr.Amount}\t{tr.Date}");
+                        }
+                        
                     }
 
                 }
@@ -473,10 +485,27 @@ namespace Bank
 
                 Console.WriteLine("Enter Account Number");
                 long AccountNo = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter Amount To Wihdraw");
-                long amount = int.Parse(Console.ReadLine());
-                BankBalClass bal = new BankBalClass();
-                bal.Withdraw(AccountNo, amount);
+                BankBalClass bal =new BankBalClass();
+                string s = bal.valdate_User(AccountNo);
+                if (s == "Open")
+                {
+                    throw new FormatException("You Cannot Send/Recive TO A Account Which Is Not Registered");
+                }
+                else if (s == "Active")
+                { 
+
+                    Console.WriteLine("Enter Amount To Wihdraw");
+                    long amount = int.Parse(Console.ReadLine());
+                    bal.Withdraw(AccountNo, amount);
+                }
+                else if (s == "Freeze")
+                {
+                    throw (new FormatException("Account Freezed"));
+                }
+                else
+                {
+                    throw (new FormatException("Account Not Found"));
+                }
             }
             catch (FormatException ex)
             {
@@ -495,10 +524,27 @@ namespace Bank
 
                 Console.WriteLine("Enter Account Number");
                 long AccountNo = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter Amount To Dipsoit");
-                long amount = int.Parse(Console.ReadLine());
                 BankBalClass bal = new BankBalClass();
-                bal.Dipsoit(AccountNo, amount);
+                string s = bal.valdate_User(AccountNo);
+                if (s == "Open")
+                {
+                    throw new FormatException("You Cannot Send/Recive TO A Account Which Is Not Registered");
+                }
+                else if (s == "Active")
+                {
+                    Console.WriteLine("Enter Amount To Dipsoit");
+                    long amount = int.Parse(Console.ReadLine());
+                    bal.Dipsoit(AccountNo, amount);
+                }
+                else if (s == "Freeze")
+                {
+                    throw (new FormatException("Account Freezed"));
+                }
+                else
+                {
+                    throw (new FormatException("Account Not Found"));
+                }
+
             }
             catch (FormatException ex)
             {
@@ -508,6 +554,7 @@ namespace Bank
             {
                 Console.WriteLine(ex);
             }
+
         }
         public static void Freeze_Account()
         {
