@@ -87,7 +87,7 @@ namespace BankBAL
                 }
                 else
                 {
-                    throw (new FormatException("Transation Password Is Too Short Or Too Long"));
+                    throw (new FormatException("Transaction Password Is Too Short Or Too Long"));
                 }
             }
 
@@ -152,7 +152,7 @@ namespace BankBAL
                 }
                 catch
                 {
-                    throw (new FormatException("Invailed Email Id"));
+                    throw (new FormatException("Invalid Email Id"));
                 }
             }
         }
@@ -169,7 +169,7 @@ namespace BankBAL
                 }
                 else
                 {
-                    throw (new FormatException("Blance Is Lessthan Minimum Balance"));
+                    throw (new FormatException("Balance Is Lessthan Minimum Balance"));
                 }
             }
         }

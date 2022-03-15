@@ -20,9 +20,11 @@ namespace Bank
             do
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("\t \t \t \t \t Welcome to Zigma Banking Systems");
-                Console.WriteLine("\t \t \t \t \t --------------------------------\n\n");
+                Console.BackgroundColor = ConsoleColor.DarkGray;
+                Console.WriteLine("\t\t\t\t\t Welcome to Zigma Banking Systems ");
+                Console.WriteLine("\t\t\t\t\t -------------------------------- \n\n");
                 Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Black;
 
                 try
                 {
@@ -72,8 +74,9 @@ namespace Bank
 
                     }
 
-
+                    Console.ForegroundColor= ConsoleColor.Green;
                     Console.WriteLine("\nOperation Completed Successfully ..........");
+                    Console.ForegroundColor = ConsoleColor.White;
 
 
 
@@ -206,7 +209,7 @@ namespace Bank
                             Beneficiary(AccountNo);
                             break;
                         default:
-                            Console.WriteLine("Invalied Choice");
+                            Console.WriteLine("Invalid Choice");
                             break;
 
                     }
@@ -245,7 +248,7 @@ namespace Bank
                 Console.WriteLine("Enter New Internet Banking Password ");
                 c.IBPassword = Console.ReadLine();
                 bal.AccNumber = c.AccNumber;
-                Console.WriteLine("Enter Transation Password ");
+                Console.WriteLine("Enter Transaction Password ");
                 c.TxnPassword = Console.ReadLine();
                 bal.IBPassword = c.IBPassword;
                 Console.WriteLine("Enter Address");
@@ -257,7 +260,7 @@ namespace Bank
                 Console.WriteLine("Enter Date Of Birth (YYYY/MM/DD) ");
                 c.DOB = Console.ReadLine();
                 bal.DOB = c.DOB;
-                Console.WriteLine("Enter Amount to be Diposited (>5000)");
+                Console.WriteLine("Enter Amount to be Deposited (>5000)");
                 c.Balance = int.Parse(Console.ReadLine());
 
                 c.AccNumber = AccountNo;
@@ -299,7 +302,7 @@ namespace Bank
                 bool check = Verify_Password(t.Sender, pass);
                 if (check)
                 {
-                    Console.WriteLine("Enter Reciver Account Number");
+                    Console.WriteLine("Enter Receiver Account Number");
                     t.Receiver = int.Parse(Console.ReadLine());
                     if (t.Sender==t.Receiver)
                     {
