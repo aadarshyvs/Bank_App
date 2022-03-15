@@ -272,11 +272,12 @@ namespace BankDAL
             cn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             List < Beneficiary > blist= new List<Beneficiary>();
-            Beneficiary b = new Beneficiary();
+            
             if (dr.HasRows)
             {
                 while (dr.Read())
                 {
+                    Beneficiary b = new Beneficiary();
                     b.Holder_Account_Number = (long)dr[0];
                     b.Payee_Account_Number = (long)dr[1];
                     b.Nickname = (string)dr[2];
