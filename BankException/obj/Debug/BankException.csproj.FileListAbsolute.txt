@@ -1,0 +1,12 @@
+F:\Capgemini\sprint1\Code\BankException\bin\Debug\BankException.dll
+F:\Capgemini\sprint1\Code\BankException\bin\Debug\BankException.pdb
+F:\Capgemini\sprint1\Code\BankException\obj\Debug\BankException.csproj.AssemblyReference.cache
+F:\Capgemini\sprint1\Code\BankException\obj\Debug\BankException.csproj.CoreCompileInputs.cache
+F:\Capgemini\sprint1\Code\BankException\obj\Debug\BankException.dll
+F:\Capgemini\sprint1\Code\BankException\obj\Debug\BankException.pdb
+D:\Project_Capgi\Sprint_1\Code\BankException\bin\Debug\BankException.dll
+D:\Project_Capgi\Sprint_1\Code\BankException\bin\Debug\BankException.pdb
+D:\Project_Capgi\Sprint_1\Code\BankException\obj\Debug\BankException.csproj.AssemblyReference.cache
+D:\Project_Capgi\Sprint_1\Code\BankException\obj\Debug\BankException.csproj.CoreCompileInputs.cache
+D:\Project_Capgi\Sprint_1\Code\BankException\obj\Debug\BankException.dll
+D:\Project_Capgi\Sprint_1\Code\BankException\obj\Debug\BankException.pdb
