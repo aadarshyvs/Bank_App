@@ -21,7 +21,7 @@ namespace Bank
             {
                 
                 Console.WriteLine("\t \t \t \t \t Welcome to Zigma Banking Systems");
-                Console.WriteLine("\t \t \t \t \t --------------------------------");
+                Console.WriteLine("\t \t \t \t \t --------------------------------\n\n");
 
                 try
                 {
@@ -29,13 +29,13 @@ namespace Bank
 
 
 
-                    Console.WriteLine("\t\t\t\t1.User login \t\t\t\t2.Admin login \nEnter Your Choice .........");
+                    Console.WriteLine("\t\t\t\t1.User login \t\t\t\t2.Admin login \n\nEnter Your Choice .........");
                     choice = int.Parse(Console.ReadLine());
                     switch (choice)
                     {
                         case 1:
 
-                            Console.WriteLine("\t\t\t\t1.New User\t\t\t\t2.Existing User\nEnter Your Choice .........");
+                            Console.WriteLine("\t\t\t\t1.New User\t\t\t\t2.Existing User\n\nEnter Your Choice .........");
                             choice = int.Parse(Console.ReadLine());
                             switch (choice)
                             {
@@ -83,12 +83,13 @@ namespace Bank
                 }
                 finally
                 {
-                    Console.WriteLine("\nPress Any Key To Continue..........");
+                    Console.WriteLine("Press Any Key To Continue..........");
                     Console.ReadKey();
                     Console.Clear();
                 }
             } while (choice > 0);
         }
+
 
 
 
@@ -109,6 +110,7 @@ namespace Bank
                 c.MoblieNumber = long.Parse(Console.ReadLine());
                 bal.MoblieNumber = c.MoblieNumber;
                 c.AccNumber = rand.Next(100000000, 999999999);
+
                 bal.AccNumber = c.AccNumber;
                 c.CRN = rand.Next(10000, 99999);
                 bal.CRN = c.CRN;
@@ -120,8 +122,9 @@ namespace Bank
                 bal.IFSC = c.IFSC;
                 c.Status = "Open";
                 bal.Status = c.Status;
-                Console.WriteLine($"We Welcome You With A Kit \nYour Account Number :{c.AccNumber}\nYour CRN Number : {c.CRN}\nYour Internet Banking Password :{c.IBPassword} ");
-
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"\nWe Welcome You With A Kit \nYour Account Number :{c.AccNumber}\nYour CRN Number : {c.CRN}\nYour Internet Banking Password :{c.IBPassword} ");
+                Console.ForegroundColor = ConsoleColor.White;
 
 
                 bal.Create_New_User(c);
@@ -144,8 +147,10 @@ namespace Bank
 
 
                 Console.WriteLine("Enter Account Number");
+
                 long AccountNo = int.Parse(Console.ReadLine());
 
+                
                 BankBalClass bal = new BankBalClass();
                 string s = bal.valdate_User(AccountNo);
                 if (s == "Open")
@@ -264,7 +269,7 @@ namespace Bank
                 t.Sender = AccountNo;
 
                 Console.WriteLine("Enter IB Password");
-                string pass = Console.ReadLine();
+                string pass = password();
                 bool check = Verify_Password(t.Sender, pass);
                 if (check)
                 {
@@ -348,7 +353,7 @@ namespace Bank
 
 
                 Console.WriteLine("Enter IB Password");
-                string pass = Console.ReadLine();
+                string pass = password();
                 bool check = Verify_Password(AccountNo, pass);
                 if (check)
                 {
@@ -378,6 +383,10 @@ namespace Bank
                         }
                         Console.ForegroundColor = ConsoleColor.White;
                     }
+                    if (t_list.Count ==0)
+                    {
+                        Console.WriteLine("No Transations To Display");
+                    }
 
 
                 }
@@ -402,7 +411,7 @@ namespace Bank
 
 
                 Console.WriteLine("Enter IB Password");
-                string pass = Console.ReadLine();
+                string pass = password();
                 bool check = Verify_Password(AccountNo, pass);
                 if (check)
                 {
@@ -614,7 +623,7 @@ namespace Bank
         private static void Add_Beneficiary(long AccountNo)
         {
             Console.WriteLine("Enter IB Password");
-            string pass = Console.ReadLine();
+            string pass = password();
             bool check = Verify_Password(AccountNo, pass);
             if (check)
             {
@@ -680,7 +689,7 @@ namespace Bank
             try
             {
                 Console.WriteLine("Enter IB Password");
-                string pass = Console.ReadLine();
+                string pass = password();
                 bool check = Verify_Password(AccountNo, pass);
                 if (check)
                 {
@@ -734,7 +743,7 @@ namespace Bank
             try
             {
                 Console.WriteLine("Enter IB Password");
-                string pass = Console.ReadLine();
+                string pass = password();
                 bool check = Verify_Password(AccountNo, pass);
                 if (check)
                 {
@@ -765,7 +774,7 @@ namespace Bank
             try
             {
                 Console.WriteLine("Enter IB Password");
-                string pass = Console.ReadLine();
+                string pass = password();
                 bool check = Verify_Password(AccountNo, pass);
                 if (check)
                 {
@@ -793,7 +802,26 @@ namespace Bank
                 Console.WriteLine(ex.Message);
             }
         }
+        public static string password()
+        {
+            string pwd = null;
+            Console.ForegroundColor = ConsoleColor.Red;
+            while (true)
+            {
+                var key = Console.ReadKey(true);
 
+                if (key.Key == ConsoleKey.Enter)
+                    break;
+                else if (key.Key == ConsoleKey.Backspace)
+                    Console.Write("\b");
+                else
+                    Console.Write("*");
+                pwd += key.KeyChar;
+            }
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.White;
+            return pwd;
+        }
 
     }
 }

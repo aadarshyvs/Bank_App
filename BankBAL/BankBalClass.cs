@@ -228,7 +228,7 @@ namespace BankBAL
         public void Create_New_User(Coustomer c)
         {
             BankDALClass dal = new BankDALClass();
-            Console.WriteLine("BAL Layer");
+            //Console.WriteLine("BAL Layer");
             //Console.WriteLine($"We Welcome You With A Kit \nYour Account Number :{c.AccNumber}\nYour CRN Number : {c.CRN}\nYour Internet Banking Password :{c.IBPassword} ");
             dal.Create_New_User(c);
         }
