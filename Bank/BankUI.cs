@@ -30,13 +30,16 @@ namespace Bank
 
 
 
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\t\t\t\t1.User login \t\t\t\t2.Admin login \n\nEnter Your Choice .........");
+                    Console.ForegroundColor = ConsoleColor.White;
                     choice = int.Parse(Console.ReadLine());
                     switch (choice)
                     {
                         case 1:
-
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("\t\t\t\t1.New User\t\t\t\t2.Existing User\n\nEnter Your Choice .........");
+                            Console.ForegroundColor = ConsoleColor.White;
                             choice = int.Parse(Console.ReadLine());
                             switch (choice)
                             {
@@ -49,7 +52,9 @@ namespace Bank
                                     Existing_User();
                                     break;
                                 default:
+                                  
                                     throw (new FormatException("Invalid choice"));
+                                   
                                     break;
 
                             }
@@ -60,7 +65,9 @@ namespace Bank
 
                             break;
                         default:
+
                             throw (new FormatException("Invalid choice"));
+                  
                             break;
 
                     }
@@ -76,11 +83,15 @@ namespace Bank
                 }
                 catch (FormatException ex)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(ex.Message);
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
                 catch (Exception ex)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(ex.Message);
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
                 finally
                 {
@@ -132,11 +143,15 @@ namespace Bank
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
 
@@ -163,7 +178,9 @@ namespace Bank
                 else if (s == "Active")
                 {
                     int choice;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\t1.Fund Transfer\t\t2.View Statement\t\t3.Update Details\t\t4.Beneficiary\nEnter Your Choice .........");
+                    Console.ForegroundColor = ConsoleColor.White;
                     choice = int.Parse(Console.ReadLine());
                     switch (choice)
                     {
@@ -207,11 +224,15 @@ namespace Bank
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
         public static void User_Reg(long AccountNo)
@@ -249,11 +270,15 @@ namespace Bank
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
         }
@@ -308,18 +333,22 @@ namespace Bank
                 }
                 else
                 {
-                    throw new FormatException("INVALID PASSWORD");
+                    throw new FormatException("Invalid Password");
 
                 }
 
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
 
@@ -338,11 +367,15 @@ namespace Bank
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             return r;
         }
@@ -364,11 +397,11 @@ namespace Bank
                     {
                         if(tr.Sender== AccountNo)
                         {
-                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
                         }
                         else
                         {
-                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
                         }
                         if (tr.Sender== 65001)
                         {
@@ -398,11 +431,15 @@ namespace Bank
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
         public static void Update_users(long AccountNo)
@@ -442,11 +479,15 @@ namespace Bank
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
         }
@@ -462,7 +503,9 @@ namespace Bank
                 if (id == "admin" && Password == "admin123")
                 {
                     int choice;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("\t1.WithDraw\t\t\t\t2.Deposit\t\t\t\t3.Freeze Account\nEnter Your Choice .........");
+                    Console.ForegroundColor = ConsoleColor.White;
                     choice = int.Parse(Console.ReadLine());
                     switch (choice)
                     {
@@ -487,11 +530,15 @@ namespace Bank
 
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
         public static void Withdraw()
@@ -526,11 +573,15 @@ namespace Bank
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
         public static void Dipsoit()
@@ -565,11 +616,15 @@ namespace Bank
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
         }
@@ -586,17 +641,23 @@ namespace Bank
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
         public static void Beneficiary(long AccountNo)
         {
             int choice;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\t1.Add Beneficiary\t2.Edit Beneficiary\t\t3.View Beneficiary\t\t4.Delete Beneficiary\nEnter Your Choice .........");
+            Console.ForegroundColor = ConsoleColor.White;
             choice = int.Parse(Console.ReadLine());
             switch (choice)
             {
@@ -672,11 +733,15 @@ namespace Bank
                 }
                 catch (FormatException ex)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(ex.Message);
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
                 catch (Exception ex)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(ex.Message);
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
 
             }
@@ -730,11 +795,15 @@ namespace Bank
             }
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
 
@@ -763,11 +832,15 @@ namespace Bank
             
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
         public static void delete_Beneficiary(long AccountNo)
@@ -790,17 +863,22 @@ namespace Bank
                     }
                 else
                 {
+                    
                     throw new FormatException("Invalid Password");
                 }
             }
 
             catch (FormatException ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
             }
         }
         public static string password()
