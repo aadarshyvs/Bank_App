@@ -19,6 +19,7 @@ namespace Bank
             int choice = -1;
             do
             {
+                
                 Console.WriteLine("\t \t \t \t \t Welcome to Zigma Banking Systems");
                 Console.WriteLine("\t \t \t \t \t --------------------------------");
 
@@ -64,7 +65,7 @@ namespace Bank
                     }
 
 
-                    Console.WriteLine("Operation Compleated Successfully ..........");
+                    Console.WriteLine("\nOperation Compleated Successfully ..........");
 
 
 
@@ -82,7 +83,7 @@ namespace Bank
                 }
                 finally
                 {
-                    Console.WriteLine("Press Any Key To Continue..........");
+                    Console.WriteLine("\nPress Any Key To Continue..........");
                     Console.ReadKey();
                     Console.Clear();
                 }
@@ -120,13 +121,6 @@ namespace Bank
                 c.Status = "Open";
                 bal.Status = c.Status;
                 Console.WriteLine($"We Welcome You With A Kit \nYour Account Number :{c.AccNumber}\nYour CRN Number : {c.CRN}\nYour Internet Banking Password :{c.IBPassword} ");
-
-
-
-
-
-
-
 
 
 
@@ -249,11 +243,11 @@ namespace Bank
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
 
         }
@@ -276,6 +270,10 @@ namespace Bank
                 {
                     Console.WriteLine("Enter Reciver Account Number");
                     t.Receiver = int.Parse(Console.ReadLine());
+                    if (t.Sender==t.Receiver)
+                    {
+                        throw new FormatException("You Cannot Send Money To Yourself ");
+                    }
                     string s;
                     s = bal.valdate_User(t.Receiver);
                     if (s == "Open")
@@ -311,11 +309,11 @@ namespace Bank
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
 
 
@@ -334,11 +332,11 @@ namespace Bank
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             return r;
         }
@@ -378,7 +376,7 @@ namespace Bank
                         {
                             Console.WriteLine($"{tr.Sender}\t{tr.Receiver}\t{tr.Amount}\t{tr.Date}");
                         }
-                        Console.ForegroundColor = ConsoleColor.;
+                        Console.ForegroundColor = ConsoleColor.White;
                     }
 
 
@@ -390,11 +388,11 @@ namespace Bank
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
         }
         public static void Update_users(long AccountNo)
@@ -434,11 +432,11 @@ namespace Bank
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
 
         }
@@ -479,11 +477,11 @@ namespace Bank
 
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
         }
         public static void Withdraw()
@@ -518,11 +516,11 @@ namespace Bank
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
         }
         public static void Dipsoit()
@@ -557,11 +555,11 @@ namespace Bank
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
 
         }
@@ -578,11 +576,11 @@ namespace Bank
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
         }
         public static void Beneficiary(long AccountNo)
@@ -664,11 +662,11 @@ namespace Bank
                 }
                 catch (FormatException ex)
                 {
-                    Console.WriteLine(ex);
+                    Console.WriteLine(ex.Message);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex);
+                    Console.WriteLine(ex.Message);
                 }
 
             }
@@ -722,11 +720,11 @@ namespace Bank
             }
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
 
 
@@ -755,11 +753,11 @@ namespace Bank
             
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
         }
         public static void delete_Beneficiary(long AccountNo)
@@ -788,11 +786,11 @@ namespace Bank
 
             catch (FormatException ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Console.WriteLine(ex.Message);
             }
         }
 
