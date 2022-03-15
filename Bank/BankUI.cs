@@ -358,6 +358,14 @@ namespace Bank
                     List<transations> t_list = bal.View_Stament(AccountNo);
                     foreach (transations tr in t_list)
                     {
+                        if(tr.Sender== AccountNo)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                        }
                         if (tr.Sender== 65001)
                         {
                             Console.WriteLine($"Bank\t\t{tr.Receiver}\t{tr.Amount}\t{tr.Date}");
@@ -370,8 +378,9 @@ namespace Bank
                         {
                             Console.WriteLine($"{tr.Sender}\t{tr.Receiver}\t{tr.Amount}\t{tr.Date}");
                         }
-                        
+                        Console.ForegroundColor = ConsoleColor.;
                     }
+
 
                 }
                 else
