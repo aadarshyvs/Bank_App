@@ -19,9 +19,10 @@ namespace Bank
             int choice = -1;
             do
             {
-                
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\t \t \t \t \t Welcome to Zigma Banking Systems");
                 Console.WriteLine("\t \t \t \t \t --------------------------------\n\n");
+                Console.ForegroundColor = ConsoleColor.White;
 
                 try
                 {
