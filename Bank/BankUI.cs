@@ -73,7 +73,7 @@ namespace Bank
                     }
 
 
-                    Console.WriteLine("\nOperation Compleated Successfully ..........");
+                    Console.WriteLine("\nOperation Completed Successfully ..........");
 
 
 
@@ -134,7 +134,7 @@ namespace Bank
                 bal.IFSC = c.IFSC;
                 c.Status = "Open";
                 bal.Status = c.Status;
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine($"\nWe Welcome You With A Kit \nYour Account Number :{c.AccNumber}\nYour CRN Number : {c.CRN}\nYour Internet Banking Password :{c.IBPassword} ");
                 Console.ForegroundColor = ConsoleColor.White;
 
@@ -553,12 +553,12 @@ namespace Bank
                 string s = bal.valdate_User(AccountNo);
                 if (s == "Open")
                 {
-                    throw new FormatException("You Cannot Send/Recive TO A Account Which Is Not Registered");
+                    throw new FormatException("You Cannot Send/Receive To A Account Which Is Not Registered");
                 }
                 else if (s == "Active")
                 { 
 
-                    Console.WriteLine("Enter Amount To Wihdraw");
+                    Console.WriteLine("Enter Amount To Withdraw ");
                     long amount = int.Parse(Console.ReadLine());
                     bal.Withdraw(AccountNo, amount);
                 }
@@ -596,11 +596,11 @@ namespace Bank
                 string s = bal.valdate_User(AccountNo);
                 if (s == "Open")
                 {
-                    throw new FormatException("You Cannot Send/Recive TO A Account Which Is Not Registered");
+                    throw new FormatException("You Cannot Send/Receive To A Account Which Is Not Registered");
                 }
                 else if (s == "Active")
                 {
-                    Console.WriteLine("Enter Amount To Dipsoit");
+                    Console.WriteLine("Enter Amount To Deposit ");
                     long amount = int.Parse(Console.ReadLine());
                     bal.Dipsoit(AccountNo, amount);
                 }
