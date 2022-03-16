@@ -197,7 +197,7 @@ namespace BankDAL
         {
             string rtn = "";
             SqlConnection cn = new SqlConnection("Data Source=DESKTOP-5HFRN07\\SQLEXPRESS;Initial Catalog=Bank;Integrated Security=True");
-            string sql = $"update Customer_Info set Status 'Freeze' = where AccNumber = {AccountNo}";
+            string sql = $"update Customer_Info set Status = 'Freeze'  where AccNumber = {AccountNo}";
             SqlCommand cmd = new SqlCommand(sql, cn);
             cn.Open();
             int i = cmd.ExecuteNonQuery();

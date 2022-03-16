@@ -246,10 +246,10 @@ namespace Bank
 
                 Coustomer c = new Coustomer();
                 Console.WriteLine("Enter New Internet Banking Password ");
-                c.IBPassword = Console.ReadLine();
+                c.IBPassword = password();
                 bal.AccNumber = c.AccNumber;
                 Console.WriteLine("Enter Transaction Password ");
-                c.TxnPassword = Console.ReadLine();
+                c.TxnPassword = password();
                 bal.IBPassword = c.IBPassword;
                 Console.WriteLine("Enter Address");
                 c.Address = Console.ReadLine();
@@ -747,7 +747,7 @@ namespace Bank
                 catch (Exception ex)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex);
                     Console.ForegroundColor = ConsoleColor.White;
                 }
 
