@@ -501,7 +501,7 @@ namespace Bank
                 Console.WriteLine("Enter Admin Id");
                 string id = Console.ReadLine();
                 Console.WriteLine("Enter Admin Password");
-                string Password = Console.ReadLine();
+                string Password = password();
 
                 if (id == "admin" && Password == "admin123")
                 {
@@ -527,6 +527,10 @@ namespace Bank
 
                     }
 
+                }
+                else
+                {
+                    throw (new FormatException("Invalid Username or Password "));
                 }
 
             }
@@ -645,13 +649,13 @@ namespace Bank
             catch (FormatException ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
                 Console.ForegroundColor = ConsoleColor.White;
             }
             catch (Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
                 Console.ForegroundColor = ConsoleColor.White;
             }
         }
